@@ -1,5 +1,5 @@
 //menggunakan function declaration
-const actionPerson = {
+const methodPerson = {
     tidur: function(hour){ 
         this.health = (this.health/4) * hour;
         this.sleepy = (this.sleepy - (this.sleepy-2)) * hour;
@@ -14,7 +14,7 @@ const actionPerson = {
     },
 
     run: function(m){
-        this.health = (this.health/5) * m;
+        this.health = (this.health - m);
         this.hungry = (this.hungry/10) * m;
         this.sleepy = (this.sleepy - (this.sleepy-2)) * m;
         this.energy = (this.energy + (m * 2));
@@ -41,7 +41,7 @@ const actionPerson = {
 }
 
 function Person(health, hungry, sleepy, energy){
-    let result = Object.create(actionPerson);
+    let result = Object.create(methodPerson);
     result.health = health;
     result.hungry = hungry;
     result.sleepy = sleepy;
@@ -51,3 +51,4 @@ function Person(health, hungry, sleepy, energy){
 }
 
 let jarwonozt = Person(100, 100, 100, 100);
+let otherman = Person(45, 10, 90, 89);
